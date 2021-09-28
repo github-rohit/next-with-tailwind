@@ -1,0 +1,15 @@
+.nav {
+  @apply flex pl-14 pr-14 py-3 shadow-sm sticky top-0 bg-white items-center
+}
+
+.searchInput {
+  @apply appearance-none border border-gray-300 rounded w-full py-2 px-8 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary
+}
+
+.searchIcon {
+  @apply pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center
+}
+
+.searchIconsvg {
+  @apply fill-current pointer-events-none text-gray-400 w-4 h-4
+}

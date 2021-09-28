@@ -1,0 +1,27 @@
+.card {
+  @apply transition-all flex bg-gray-100 rounded-lg overflow-hidden hover:bg-gray-900 hover:shadow-2xl group
+}
+
+.card .imageContainer {
+  @apply md:flex-shrink-0 md:p-4
+}
+
+.card .title {
+  @apply block mt-1 text-xl leading-tight font-medium text-black
+}
+
+.card .plot {
+  @apply mt-2 text-gray-600 overflow-hidden overflow-ellipsis
+}
+
+.card .btn {
+  @apply text-purple-900 hover:text-purple-600 
+}
+
+.card .pills {
+  @apply flex items-center justify-center rounded-full bg-purple-100 text-purple-900 text-xs pt-1 pb-1 p-2
+}
+
+.card .image {
+  @apply h-44 md:h-auto w-full object-cover md:w-44
+}

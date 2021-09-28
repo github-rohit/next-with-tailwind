@@ -1,0 +1,18 @@
+.pagination {
+  @apply  mt-10 mb-16
+}
+.pagination ul {
+  @apply flex gap-2 justify-center
+}
+.pagination ul li{
+  @apply bg-white border-solid border text-xs rounded text-primary hover:border-purple-900
+}
+.pagination ul li a {
+  @apply p-2 px-3 block
+}
+.pagination ul li.selected {
+  @apply bg-purple-200 border-purple-900
+}
+.pagination ul li.break {
+  @apply bg-transparent border-0 text-gray-500 cursor-default
+}
