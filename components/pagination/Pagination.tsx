@@ -27,7 +27,7 @@ const Pagination: NextPage<PaginationProps> = (props) => {
     }
 
     router.push({
-      query: { page: Math.max(1, selected + 1) }
+      query: { ...router.query, page: Math.max(1, selected + 1) }
     });
   };
 
