@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Router, { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image';
-import logo from '../../public/logo-purple.svg';
 
 import styles from './Header.module.css';
 import React from 'react';
@@ -55,7 +53,12 @@ const Header: NextPage = () => {
       <div className={styles.nav}>
         <Link href="/">
           <a>
-            <Image src={logo} alt="" height="40" width="33" />
+            <img
+              src="https://angularflix.firebaseapp.com/assets/images/logo-purple.svg"
+              alt=""
+              height="40"
+              width="33"
+            />
           </a>
         </Link>
         <div className="flex-1" />
