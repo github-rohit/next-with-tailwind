@@ -7,8 +7,17 @@ interface MoviesDetails {
   movie: Movie;
 }
 
-const MoviesDetails: NextPage<MoviesDetails> = (props) => {
+const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
   const { movie } = props;
+
+  if (!movie) {
+    return (
+      <>
+        <div className="px-14 py-14">loading...</div>
+      </>
+    );
+  }
+
   const {
     title,
     year,
@@ -93,7 +102,7 @@ const MoviesDetails: NextPage<MoviesDetails> = (props) => {
           </div>
         </div>
         <div className="md:w-4/12">
-          <img src={poster} />
+          <img src={poster} alt={title} />
         </div>
       </div>
       {awards && (
@@ -181,12 +190,15 @@ const MoviesDetails: NextPage<MoviesDetails> = (props) => {
   );
 };
 
-MoviesDetails.getInitialProps = async (context): Promise<MoviesDetails> => {
-  const { data } = (await axios.get(
-    `https://server-flix.herokuapp.com/api/v1/movies/id/${context.query.id}`
-  )) as AxiosResponse<any>;
-
-  return { ...data };
+MoviesDetails.getInitialProps = async (context) => {
+  try {
+    const { data } = (await axios.get(
+      `https://server-flix.herokuapp.com/api/v1/movies/id/${context.query.id}`
+    )) as AxiosResponse<any>;
+    return data;
+  } catch (error) {
+    return { movie: null };
+  }
 };
 
 export default MoviesDetails;

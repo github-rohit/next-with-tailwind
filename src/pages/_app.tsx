@@ -1,10 +1,15 @@
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import '../styles/globals.css';
 import Header from '../components/header/Header';
-import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" href="./favicon.ico" />
+        <title>Nextjs | tailwind</title>
+      </Head>
       <div>
         <Header />
         <main>
