@@ -1,6 +1,9 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import axios, { AxiosResponse } from 'axios';
+import dayjs from 'dayjs';
+import NumberFormat from 'react-number-format';
+
 import { Movie } from '../../types/Movie';
 
 interface MoviesDetails {
@@ -124,9 +127,12 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
                 key={_id}
                 className="p-3 mb-2 border border-dashed border-gray-300 rounded"
               >
-                <div className="space-x-3">
+                <div className="space-x-1">
                   <span className="font-bold text-gray-800">{name}</span>
-                  <span className="text-sm text-gray-600">{date}</span>
+                  <span>&middot;</span>
+                  <span className="text-sm text-gray-600">
+                    {dayjs(date).format('MMM DD, YYYY')}
+                  </span>
                 </div>
                 <div className="mt-1 text-gray-800">{text}</div>
               </div>
@@ -144,7 +150,15 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
               <span className="text-gray-600 text-sm">IMDB</span>
             </div>
             <div className="mt-2 text-gray-600">
-              Rating from {imdb?.votes} reviews
+              Rating from{' '}
+              {imdb?.votes && (
+                <NumberFormat
+                  value={imdb?.votes}
+                  displayType="text"
+                  thousandSeparator
+                />
+              )}{' '}
+              reviews
             </div>
           </div>
           {metacritic && (
@@ -166,7 +180,15 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
                 <span className="text-gray-600 text-sm">Rotten Tomatoes</span>
               </div>
               <div className="mt-2 text-gray-600">
-                Critic rating from {tomatoes.critic?.numReviews} reviews
+                Critic rating from{' '}
+                {tomatoes.critic?.numReviews && (
+                  <NumberFormat
+                    value={tomatoes.critic?.numReviews}
+                    displayType="text"
+                    thousandSeparator
+                  />
+                )}{' '}
+                reviews
               </div>
             </div>
           )}
@@ -180,7 +202,15 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
                 <span className="text-gray-600 text-sm">Rotten Tomatoes</span>
               </div>
               <div className="mt-2 text-gray-600">
-                Viewer rating from {tomatoes.viewer?.numReviews} reviews
+                Viewer rating from{' '}
+                {tomatoes.viewer?.numReviews && (
+                  <NumberFormat
+                    value={tomatoes.viewer?.numReviews}
+                    displayType="text"
+                    thousandSeparator
+                  />
+                )}{' '}
+                reviews
               </div>
             </div>
           )}
