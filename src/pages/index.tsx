@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import axios, { AxiosResponse } from 'axios';
 
 import MovieCard from '../components/movieCard/MovieCard';
@@ -15,6 +15,7 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = (props) => {
+  const router = useRouter();
   const { movies, ...rest } = props;
   const [loading, setLoading] = useState(false);
 
@@ -38,6 +39,20 @@ const Home: NextPage<HomeProps> = (props) => {
     return (
       <>
         <div className="p-14">loading...</div>
+      </>
+    );
+  }
+
+  if (!rest.total_results) {
+    return (
+      <>
+        <div
+          className="px-14 py-14 flex-1 flex items-center justify-center text-lg"
+          style={{ height: '70vh' }}
+        >
+          Your search - <b>{router.query?.text}</b> - did not match any
+          documents.
+        </div>
       </>
     );
   }

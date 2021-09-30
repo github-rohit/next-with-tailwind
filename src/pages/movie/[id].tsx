@@ -8,10 +8,25 @@ import { Movie } from '../../types/Movie';
 
 interface MoviesDetails {
   movie: Movie;
+  error: boolean;
 }
 
 const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
-  const { movie } = props;
+  const { movie, error } = props;
+
+  if (error) {
+    return (
+      <>
+        <div
+          className="px-14 py-14 flex-1 flex items-center justify-center font-light"
+          style={{ height: '70vh' }}
+        >
+          <span className="text-2xl py-1 pr-3 mr-2 border-r">404</span>{' '}
+          <span className="text-xl">This page could not be found.</span>
+        </div>
+      </>
+    );
+  }
 
   if (!movie) {
     return (
@@ -227,7 +242,7 @@ MoviesDetails.getInitialProps = async (context) => {
     )) as AxiosResponse<any>;
     return data;
   } catch (error) {
-    return { movie: null };
+    return { movie: null, error: true };
   }
 };
 
