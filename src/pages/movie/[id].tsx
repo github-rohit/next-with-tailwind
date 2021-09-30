@@ -18,7 +18,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
     return (
       <>
         <div
-          className="px-14 py-14 flex-1 flex items-center justify-center font-light"
+          className="p-6 md:p-14 flex-1 flex items-center justify-center font-light"
           style={{ height: '70vh' }}
         >
           <span className="text-2xl py-1 pr-3 mr-2 border-r">404</span>{' '}
@@ -31,7 +31,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
   if (!movie) {
     return (
       <>
-        <div className="px-14 py-14">loading...</div>
+        <div className="p-6 md:p-14">loading...</div>
       </>
     );
   }
@@ -58,7 +58,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-10 bg-gray-900 px-14 py-14">
+      <div className="flex flex-col md:flex-row gap-10 bg-gray-900 p-6 md:p-14">
         <div className="flex-1">
           <div className="text-3xl font-bold text-gray-200">{title}</div>
           <div className="space-x-2 mt-1 text-gray-400">
@@ -124,14 +124,14 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
         </div>
       </div>
       {awards && (
-        <div className="px-14 py-8 bg-gray-100">
+        <div className="px-6 md:px-14 py-8 bg-gray-100">
           <h1 className="text-3xl font-bold mb-4 border-l-8 border-primary py-1 pl-2">
             Awards
           </h1>
           <div className="font-bold text-lg">{awards.text}</div>
         </div>
       )}
-      <div className="flex flex-col md:flex-row gap-10 mt-8 mb-16 px-14">
+      <div className="flex flex-col md:flex-row gap-10 mt-8 mb-16 px-6 md:px-14">
         <div className="flex-1">
           <h1 className="text-3xl font-bold mb-4 border-l-8 border-primary py-1 pl-2">
             Comments

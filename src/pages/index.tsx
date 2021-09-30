@@ -47,7 +47,7 @@ const Home: NextPage<HomeProps> = (props) => {
     return (
       <>
         <div
-          className="px-14 py-14 flex-1 flex items-center justify-center text-lg"
+          className="px-6 md:px-14 md:py-14  flex-1 flex items-center justify-center text-lg"
           style={{ height: '70vh' }}
         >
           Your search - <b>{router.query?.text}</b> - did not match any
@@ -59,7 +59,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <>
-      <div className="p-14">
+      <div className="p-6 md:p-14">
         <div className="grid gap-10 md:grid-cols-1 lg:grid-cols-2 ">
           {movies?.map((movie, index: any) => {
             return <MovieCard {...movie} key={index} />;
