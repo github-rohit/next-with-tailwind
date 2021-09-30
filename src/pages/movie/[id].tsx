@@ -59,7 +59,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-10 bg-gray-900 p-6 md:p-14">
+      <div className="flex flex-col-reverse md:flex-row gap-10 bg-gray-900 p-6 md:p-14">
         <div className="flex-1">
           <div className="text-3xl font-bold text-gray-200">{title}</div>
           <div className="space-x-2 mt-1 text-gray-400">
@@ -130,7 +130,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
           <div className="font-bold text-lg">{awards.text}</div>
         </div>
       )}
-      <div className="flex flex-col md:flex-row gap-10 mt-8 mb-16 px-6 md:px-14">
+      <div className="flex md:flex-row gap-10 mt-8 mb-16 px-6 md:px-14 flex-col-reverse">
         <div className="flex-1">
           <PageHeading>Comments</PageHeading>
           {comments.map(({ _id, name, date, text }) => {
