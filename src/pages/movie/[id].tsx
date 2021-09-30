@@ -3,6 +3,7 @@ import Link from 'next/link';
 import axios, { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 import NumberFormat from 'react-number-format';
+import PageHeading from '../../components/pageHeading/PageHeading';
 
 import { Movie } from '../../types/Movie';
 
@@ -125,17 +126,13 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
       </div>
       {awards && (
         <div className="px-6 md:px-14 py-8 bg-gray-100">
-          <h1 className="text-3xl font-bold mb-4 border-l-8 border-primary py-1 pl-2">
-            Awards
-          </h1>
+          <PageHeading>Awards</PageHeading>
           <div className="font-bold text-lg">{awards.text}</div>
         </div>
       )}
       <div className="flex flex-col md:flex-row gap-10 mt-8 mb-16 px-6 md:px-14">
         <div className="flex-1">
-          <h1 className="text-3xl font-bold mb-4 border-l-8 border-primary py-1 pl-2">
-            Comments
-          </h1>
+          <PageHeading>Comments</PageHeading>
           {comments.map(({ _id, name, date, text }) => {
             return (
               <div
@@ -155,9 +152,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
           })}
         </div>
         <div className="md:w-4/12">
-          <h1 className="text-3xl font-bold mb-4 border-l-8 border-primary py-1 pl-2">
-            Ratings
-          </h1>
+          <PageHeading>Ratings</PageHeading>
           <div className="mt-4 p-3 border border-dashed rounded border-gray-300">
             <div>
               <span className="text-3xl text-primary">{imdb?.rating}/</span>
