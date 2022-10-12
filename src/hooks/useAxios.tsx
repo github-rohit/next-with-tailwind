@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://server-flix.herokuapp.com/api/v1';
+axios.defaults.baseURL = process.env.api_url;
 
 interface UseAxios {
   url: string;

@@ -233,7 +233,7 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
 MoviesDetails.getInitialProps = async (context) => {
   try {
     const { data } = (await axios.get(
-      `https://server-flix.herokuapp.com/api/v1/movies/id/${context.query.id}`
+      `${process.env.api_url}/movies/id/${context.query.id}`
     )) as AxiosResponse<any>;
     return data;
   } catch (error) {

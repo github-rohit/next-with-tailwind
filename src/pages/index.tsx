@@ -85,7 +85,7 @@ Home.getInitialProps = async (context): Promise<HomeProps> => {
   }
 
   const { data } = (await axios.get(
-    `https://server-flix.herokuapp.com/api/v1/movies${queryStr}`
+    `${process.env.api_url}/movies${queryStr}`
   )) as AxiosResponse<HomeProps>;
   return { ...data } as HomeProps;
 };

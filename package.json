@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "dayjs": "^1.10.7",
-    "next": "11.1.2",
+    "next": "^11.1.4",
     "postcss-nested": "^5.0.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
