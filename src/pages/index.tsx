@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Router, { useRouter } from 'next/router';
 import axios, { AxiosResponse } from 'axios';
 
+import Loader from '../components/loader/Loader';
 import MovieCard from '../components/movieCard/MovieCard';
 import Pagination from '../components/pagination/Pagination';
 import { Movie } from '../types/Movie';
@@ -38,7 +39,9 @@ const Home: NextPage<HomeProps> = (props) => {
   if (loading) {
     return (
       <>
-        <div className="p-14">loading...</div>
+        <div className="p-14">
+          <Loader />
+        </div>
       </>
     );
   }

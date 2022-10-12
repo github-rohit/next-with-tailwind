@@ -3,6 +3,8 @@ import Link from 'next/link';
 import axios, { AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 import NumberFormat from 'react-number-format';
+
+import Loader from '../../components/loader/Loader';
 import PageHeading from '../../components/pageHeading/PageHeading';
 
 import { Movie } from '../../types/Movie';
@@ -32,7 +34,9 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
   if (!movie) {
     return (
       <>
-        <div className="p-6 md:p-14">loading...</div>
+        <div className="p-6 md:p-14">
+          <Loader />
+        </div>
       </>
     );
   }
