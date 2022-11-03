@@ -26,26 +26,6 @@ const Home: NextPage<HomeProps> = (props) => {
     });
   };
 
-  useEffect(() => {
-    Router.events.on('routeChangeStart', handelRouteChange);
-    Router.events.on('routeChangeComplete', handelRouteChange);
-
-    return () => {
-      Router.events.off('routeChangeStart', handelRouteChange);
-      Router.events.off('routeChangeComplete', handelRouteChange);
-    };
-  }, []);
-
-  if (loading) {
-    return (
-      <>
-        <div className="p-14">
-          <Loader />
-        </div>
-      </>
-    );
-  }
-
   if (!rest.total_results) {
     return (
       <>
