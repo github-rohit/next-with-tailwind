@@ -20,11 +20,33 @@ const Home: NextPage<HomeProps> = (props) => {
   const { movies, ...rest } = props;
   const [loading, setLoading] = useState(false);
 
-  const handelRouteChange = () => {
-    setLoading((prevState) => {
-      return !prevState;
-    });
+  const handelRouteChangeStart = () => {
+    setLoading(true);
   };
+
+  const handelRouteChangeEnd = () => {
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    Router.events.on('routeChangeStart', handelRouteChangeStart);
+    Router.events.on('routeChangeComplete', handelRouteChangeEnd);
+
+    return () => {
+      Router.events.off('routeChangeStart', handelRouteChangeStart);
+      Router.events.off('routeChangeComplete', handelRouteChangeEnd);
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <>
+        <div className="p-14">
+          <Loader />
+        </div>
+      </>
+    );
+  }
 
   if (!rest.total_results) {
     return (

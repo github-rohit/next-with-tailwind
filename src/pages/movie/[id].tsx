@@ -31,6 +31,16 @@ const MoviesDetails: NextPage<MoviesDetails | null> = (props) => {
     );
   }
 
+  if (!movie) {
+    return (
+      <>
+        <div className="p-6 md:p-14">
+          <Loader />
+        </div>
+      </>
+    );
+  }
+
   const {
     title,
     year,
